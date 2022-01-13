@@ -18,3 +18,19 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+class GlimmerMetronome
+  module Model
+    class Beat
+      attr_accessor :on
+      
+      def off!
+        self.on = false
+      end
+      
+      def on!
+        self.on = true
+      end
+    end
+  end
+end

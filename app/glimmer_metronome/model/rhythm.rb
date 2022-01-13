@@ -18,3 +18,29 @@
 # LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+require_relative 'beat'
+
+class GlimmerMetronome
+  module Model
+    class Rhythm
+      attr_reader :beat_count
+      attr_accessor :beats, :bpm
+      
+      def initialize(beat_count)
+        self.beat_count = beat_count
+        @bpm = 120
+      end
+      
+      def beat_count=(value)
+        @beat_count = value
+        reset_beats!
+      end
+      
+      def reset_beats!
+        @beats = beat_count.times.map {Beat.new}
+        @beats.first.on!
+      end
+    end
+  end
+end
