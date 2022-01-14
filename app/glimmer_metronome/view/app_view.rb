@@ -31,6 +31,10 @@ class GlimmerMetronome
       FILE_SOUND_METRONOME_UP = File.join(APP_ROOT, 'sounds', 'metronome-up.wav')
       FILE_SOUND_METRONOME_DOWN = File.join(APP_ROOT, 'sounds', 'metronome-down.wav')
           
+      attr_accessor :muted, :stopped
+      alias muted? muted
+      alias stopped? stopped
+          
       before_body do
         @rhythm = Model::Rhythm.new(4)
         
@@ -55,6 +59,35 @@ class GlimmerMetronome
             center true
           }
           text 'Glimmer Metronome'
+          
+          tool_bar {
+            tool_item { |ti|
+              image ICON_STOP
+              hot_image ICON_HOT_STOP
+              
+              on_widget_selected do
+                self.stopped = !@stopped
+                ti.image = @stopped ? ICON_PLAY : ICON_STOP
+                ti.hot_image = @stopped ? ICON_HOT_PLAY : ICON_HOT_STOP
+                if @stopped
+                  stop_metronome
+                else
+                  start_metronome
+                end
+              end
+            }
+            
+            tool_item { |ti|
+              image ICON_MUTE
+              hot_image ICON_HOT_MUTE
+              
+              on_widget_selected do
+                self.muted = !@muted
+                ti.image = @muted ? ICON_SOUND : ICON_MUTE
+                ti.hot_image = @muted ? ICON_HOT_SOUND : ICON_HOT_MUTE`
+              end
+            }
+          }
           
           label {
             text 'Beat Count'
@@ -111,15 +144,15 @@ class GlimmerMetronome
       end
       
       def start_metronome
-        @thread ||= Thread.new {
+        @thread ||= Thread.new do
           @rhythm.beat_count.times.cycle { |n|
-            sleep(60.0/@rhythm.bpm.to_f)
             @rhythm.beats.each(&:off!)
             @rhythm.beats[n].on!
             sound_file = n == 0 ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
             play_sound(sound_file)
+            sleep(60.0/@rhythm.bpm.to_f)
           }
-        }
+        end
         if @beat_container.nil?
           body_root.content {
             @beat_container = beat_container
@@ -130,10 +163,9 @@ class GlimmerMetronome
       end
       
       def stop_metronome
+        @rhythm.beats.each(&:off!)
         @thread&.kill # safe since no stored data is involved
         @thread = nil
-        @beat_container&.dispose
-        @beat_container = nil
       end
       
       def restart_metronome
@@ -148,7 +180,8 @@ class GlimmerMetronome
           audio_stream = AudioSystem.get_audio_input_stream(audio_input)
           clip = AudioSystem.clip
           clip.open(audio_stream)
-          clip.start
+          # TODO avoid starting if mute is on e.g. unless muted?
+          clip.start unless @muted
         rescue => e
           puts e.full_message
         end
