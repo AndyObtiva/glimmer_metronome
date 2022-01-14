@@ -31,8 +31,6 @@ class GlimmerMetronome
       FILE_SOUND_METRONOME_UP = File.join(APP_ROOT, 'sounds', 'metronome-up.wav')
       FILE_SOUND_METRONOME_DOWN = File.join(APP_ROOT, 'sounds', 'metronome-down.wav')
           
-      attr_accessor :rhythm
-      
       before_body do
         @rhythm = Model::Rhythm.new(4)
         
@@ -61,7 +59,7 @@ class GlimmerMetronome
               end
               if time_difference
                 if time_difference < 2
-                  rhythm.bpm = (BigDecimal('60.0') / time_difference)
+                  @rhythm.bpm = (BigDecimal('60.0') / time_difference)
                 else
                   @tap_time = []
                 end
@@ -87,7 +85,7 @@ class GlimmerMetronome
           spinner {
             minimum 1
             maximum 64
-            selection <=> [self, 'rhythm.beat_count', after_write: ->(v) {restart_metronome}]
+            selection <=> [@rhythm, 'beat_count', after_write: ->(v) {restart_metronome}]
             font height: 30
           }
           
@@ -99,7 +97,7 @@ class GlimmerMetronome
           spinner {
             minimum 30
             maximum 1000
-            selection <=> [self, 'rhythm.bpm']
+            selection <=> [@rhythm, 'bpm']
             font height: 30
           }
           
@@ -126,7 +124,7 @@ class GlimmerMetronome
                 height_hint 50
               }
               rectangle(0, 0, :default, :default, 36, 36) {
-                background <= [self, "rhythm.beats[#{n}].on", on_read: ->(on) { on ? :red : :yellow}]
+                background <= [@rhythm, "beats[#{n}].on", on_read: ->(on) { on ? :red : :yellow}]
               }
             }
           }
