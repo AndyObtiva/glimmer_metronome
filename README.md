@@ -16,6 +16,10 @@ BPM Change
 
 ![metronome bpm changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-bpm-changed.png)
 
+## Demo
+
+![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)
+
 ## Ruby Gem Instructions
 
 If you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), then follow these instructions:
