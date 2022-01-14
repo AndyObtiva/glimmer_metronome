@@ -69,7 +69,7 @@ class GlimmerMetronome
           }
           
           label {
-            text 'BPM'
+            text 'Tempo'
             font height: 30, style: :bold
           }
           
