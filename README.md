@@ -2,6 +2,8 @@
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.0.0 DMG for Mac (X64 Catalina and Older)](https://www.dropbox.com/s/bjy4hie74gmxb5d/Glimmer%20Metronome-1.0.0.dmg?dl=1)
+
 Metronome
 
 ![metronome](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.png)
@@ -14,7 +16,7 @@ BPM Change
 
 ![metronome bpm changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-bpm-changed.png)
 
-## Install Ruby Gem
+## Ruby Gem Instructions
 
 If you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), then follow these instructions:
 
@@ -43,3 +45,7 @@ If you are a software engineer and would like to install this application as a [
 [MIT](LICENSE.txt)
 
 Copyright (c) 2022 Andy Maleh. See [LICENSE.txt](LICENSE.txt) for further details.
+
+--
+
+Glimmer Metronome icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>

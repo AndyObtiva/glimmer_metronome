@@ -35,6 +35,16 @@ class GlimmerMetronome
       
       before_body do
         @rhythm = Model::Rhythm.new(4)
+        
+        display {
+          on_about do
+            display_about_dialog
+          end
+          
+          on_preferences do
+            display_about_dialog
+          end
+        }
       end
       
       body {
@@ -132,14 +142,53 @@ class GlimmerMetronome
       # Play sound with the Java Sound library
       def play_sound(sound_file)
         begin
-          file_or_stream = java.io.File.new(sound_file)
-          audio_stream = AudioSystem.get_audio_input_stream(file_or_stream)
+          audio_input = build_audio_input(sound_file)
+          audio_stream = AudioSystem.get_audio_input_stream(audio_input)
           clip = AudioSystem.clip
           clip.open(audio_stream)
           clip.start
         rescue => e
           puts e.full_message
         end
+      end
+      
+      def build_audio_input(sound_file)
+        # if running from packaged JAR, we get a uri:classloader sound_file
+        if sound_file.start_with?('uri:classloader')
+          jar_file_path = sound_file
+          file_path = jar_file_path.sub(/^uri\:classloader\:/, '').sub(/^\/+/, '')
+          require 'jruby'
+          jcl = JRuby.runtime.jruby_class_loader
+          resource = jcl.get_resource_as_stream(file_path)
+          file_input_stream = resource.to_io.to_input_stream
+          java.io.BufferedInputStream.new(file_input_stream)
+        else
+          java.io.File.new(sound_file)
+        end
+      end
+      
+      def display_about_dialog
+        dialog(body_root) {
+          grid_layout(2, false) {
+            margin_width 15
+            margin_height 15
+          }
+          
+          background :white
+          image ICON
+          text 'About'
+          
+          label {
+            layout_data :center, :center, false, false
+            background :white
+            image ICON, height: 260
+          }
+          label {
+            layout_data :fill, :fill, true, true
+            background :white
+            text "Glimmer Metronome #{VERSION}\n\n#{LICENSE}\n\nGlimmer Metronome icon made by Freepik from www.flaticon.com"
+          }
+        }.open
       end
     end
   end
