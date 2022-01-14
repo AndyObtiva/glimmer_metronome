@@ -19,6 +19,8 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+require 'bigdecimal'
+
 require_relative 'beat'
 
 class GlimmerMetronome
@@ -40,6 +42,29 @@ class GlimmerMetronome
       def reset_beats!
         @beats = beat_count.times.map {Beat.new}
         @beats.first.on!
+      end
+      
+      def tap!
+        new_tap_time = Time.now
+        @tap_time ||= []
+        time_difference = nil
+        if @tap_time.any?
+          if @tap_time[-2]
+            time_difference1 = new_tap_time - @tap_time[-1]
+            time_difference2 = @tap_time[-1] - @tap_time[-2]
+            time_difference = BigDecimal((time_difference1 + time_difference2).to_s) / 2.0
+          else
+            time_difference = BigDecimal((new_tap_time - @tap_time[-1]).to_s)
+          end
+        end
+        if time_difference
+          if time_difference < 2
+            self.bpm = (BigDecimal('60.0') / time_difference)
+          else
+            @tap_time = []
+          end
+        end
+        @tap_time << Time.now
       end
     end
   end

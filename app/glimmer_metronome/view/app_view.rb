@@ -44,28 +44,7 @@ class GlimmerMetronome
           end
           
           on_swt_keydown do |event|
-            if event.keyCode == swt(:cr)
-              new_tap_time = Time.now
-              @tap_time ||= []
-              time_difference = nil
-              if @tap_time.any?
-                if @tap_time[-2]
-                  time_difference1 = new_tap_time - @tap_time[-1]
-                  time_difference2 = @tap_time[-1] - @tap_time[-2]
-                  time_difference = BigDecimal((time_difference1 + time_difference2).to_s) / 2.0
-                else
-                  time_difference = BigDecimal((new_tap_time - @tap_time[-1]).to_s)
-                end
-              end
-              if time_difference
-                if time_difference < 2
-                  @rhythm.bpm = (BigDecimal('60.0') / time_difference)
-                else
-                  @tap_time = []
-                end
-              end
-              @tap_time << Time.now
-            end
+            @rhythm.tap! if event.keyCode == swt(:cr)
           end
         }
       end
