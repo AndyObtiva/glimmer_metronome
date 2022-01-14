@@ -44,6 +44,15 @@ class GlimmerMetronome
           on_preferences do
             display_about_dialog
           end
+          
+          on_swt_keydown do |event|
+            if event.keyCode == swt(:cr)
+              new_tap_time = Time.now
+              time_difference = new_tap_time - @tap_time if @tap_time
+              rhythm.bpm = (BigDecimal('60.0') / BigDecimal(time_difference.to_s)) if time_difference && time_difference < 2
+              @tap_time = Time.now
+            end
+          end
         }
       end
       

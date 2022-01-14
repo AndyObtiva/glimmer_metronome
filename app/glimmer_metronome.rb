@@ -9,6 +9,8 @@ rescue
   # add more gems if needed
 end
 
+require 'bigdecimal'
+
 class GlimmerMetronome
   APP_ROOT = File.expand_path('../..', __FILE__)
   VERSION = File.read(File.join(APP_ROOT, 'VERSION'))
