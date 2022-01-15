@@ -20,7 +20,7 @@ class GlimmerMetronome
   ICON = File.join(APP_ROOT, 'icons/linux/Glimmer Metronome.png')
   ICON_SOUND = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -54,7 +54,7 @@ class GlimmerMetronome
   }
   ICON_HOT_SOUND = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -88,7 +88,7 @@ class GlimmerMetronome
   }
   ICON_MUTE = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -101,7 +101,7 @@ class GlimmerMetronome
   }
   ICON_HOT_MUTE = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -114,7 +114,7 @@ class GlimmerMetronome
   }
   ICON_STOP = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -127,7 +127,7 @@ class GlimmerMetronome
   }
   ICON_HOT_STOP = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -140,7 +140,7 @@ class GlimmerMetronome
   }
   ICON_PLAY = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {
@@ -153,7 +153,7 @@ class GlimmerMetronome
   }
   ICON_HOT_PLAY = image(36, 36) {
     rectangle(0, 0, 36, 36) {
-      background :widget_background
+      background :red # :widget_background
     }
     
     oval(0, 0, 36, 36) {

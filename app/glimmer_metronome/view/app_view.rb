@@ -59,6 +59,7 @@ class GlimmerMetronome
             center true
           }
           text 'Glimmer Metronome'
+          background :red
           
           tool_bar {
             tool_item { |ti|
@@ -87,6 +88,7 @@ class GlimmerMetronome
           label {
             text 'Beat Count'
             font height: 30, style: :bold
+            foreground :yellow
           }
           
           spinner {
@@ -99,6 +101,7 @@ class GlimmerMetronome
           label {
             text 'Tempo'
             font height: 30, style: :bold
+            foreground :yellow
           }
           
           spinner {
@@ -110,6 +113,8 @@ class GlimmerMetronome
           
           @beat_container = composite {
             grid_layout(@rhythm.beat_count, true)
+            
+            background :red
             
             @beats = @rhythm.beat_count.times.map { |n|
               beat(n)
@@ -132,8 +137,11 @@ class GlimmerMetronome
             width_hint 50
             height_hint 50
           }
+          
+          background :red
+          
           rectangle(0, 0, :default, :default, 36, 36) {
-            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { up ? :red : :yellow}]
+            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { up ? :yellow : :white}]
             
             on_mouse_up do
               if @rhythm.beats[beat_index].up?
@@ -144,8 +152,8 @@ class GlimmerMetronome
             end
           }
           polygon(18, 16, 34, 25, 18, 34) {
-            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : (@rhythm.beats[beat_index].up? ? :red : :yellow)}]
-            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { @rhythm.beats[beat_index].on? ? :black : (up ? :red : :yellow)}]
+            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : (@rhythm.beats[beat_index].up? ? :yellow : :white)}]
+            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { @rhythm.beats[beat_index].on? ? :black : (up ? :yellow : :white)}]
           }
         }
       end
