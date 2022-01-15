@@ -138,6 +138,9 @@ class GlimmerMetronome
               rectangle(0, 0, :default, :default, 36, 36) {
                 background <= [@rhythm, "beats[#{n}].on", on_read: ->(on) { on ? :red : :yellow}]
               }
+              polygon(18, 16, 34, 25, 18, 34) {
+                background <= [@rhythm, "beats[#{n}].on", on_read: ->(on) { on ? :black : :yellow}]
+              }
             }
           }
         }

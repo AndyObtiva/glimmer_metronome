@@ -1,7 +1,6 @@
 # TODO
 
 - Let user pick which beats are up or down
-- Show black outline around played beat
 
 - Consider renaming Beat Count
 - Let user add accents to beats
