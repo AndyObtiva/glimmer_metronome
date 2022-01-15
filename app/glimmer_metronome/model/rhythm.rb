@@ -52,12 +52,12 @@ class GlimmerMetronome
         if @beats
           off!
           if beat_count > @beats.count
-            @beats += (beat_count - @beats.count).times.map {Beat.new}
+            @beats += (beat_count - @beats.count).times.map {Beat.new(false)}
           elsif beat_count < @beats.count
             @beats = @beats[0, @beats.count]
           end
         else
-          @beats = beat_count.times.map {Beat.new}
+          @beats = beat_count.times.map {|i| Beat.new(i == 0)}
         end
         on_beat!(0)
       end

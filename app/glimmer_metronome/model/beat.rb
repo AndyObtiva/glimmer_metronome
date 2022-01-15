@@ -22,7 +22,22 @@
 class GlimmerMetronome
   module Model
     class Beat
-      attr_accessor :on
+      attr_accessor :on, :up
+      alias on? on
+      alias up? up
+      
+      def initialize(is_up)
+        self.up = is_up
+      end
+      
+      def off=(is_off)
+        self.on = !is_off
+      end
+      
+      def off
+        !on
+      end
+      alias off? off
       
       def off!
         self.on = false
@@ -30,6 +45,23 @@ class GlimmerMetronome
       
       def on!
         self.on = true
+      end
+      
+      def down=(is_down)
+        self.up = !is_down
+      end
+      
+      def down
+        !up
+      end
+      alias down? down
+      
+      def up!
+        self.up = true
+      end
+      
+      def down!
+        self.down = true
       end
     end
   end

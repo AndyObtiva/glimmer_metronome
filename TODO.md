@@ -1,7 +1,5 @@
 # TODO
 
-- Let user pick which beats are up or down
-
 ## Maybe
 
 - Consider renaming Beat Count

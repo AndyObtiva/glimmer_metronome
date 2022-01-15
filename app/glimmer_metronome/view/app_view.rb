@@ -133,10 +133,19 @@ class GlimmerMetronome
             height_hint 50
           }
           rectangle(0, 0, :default, :default, 36, 36) {
-            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :red : :yellow}]
+            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { up ? :red : :yellow}]
+            
+            on_mouse_up do
+              if @rhythm.beats[beat_index].up?
+                @rhythm.beats[beat_index].down!
+              else
+                @rhythm.beats[beat_index].up!
+              end
+            end
           }
           polygon(18, 16, 34, 25, 18, 34) {
-            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : :yellow}]
+            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : (@rhythm.beats[beat_index].up? ? :red : :yellow)}]
+            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { @rhythm.beats[beat_index].on? ? :black : (up ? :red : :yellow)}]
           }
         }
       end
@@ -150,7 +159,7 @@ class GlimmerMetronome
             rescue => e
               puts e.full_message
             end
-            sound_file = n == 0 ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
+            sound_file = @rhythm.beats[n].up? ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
             play_sound(sound_file)
             sleep(60.0/@rhythm.tempo.to_f)
           }
