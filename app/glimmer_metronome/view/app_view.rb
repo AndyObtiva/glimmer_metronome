@@ -66,14 +66,9 @@ class GlimmerMetronome
               hot_image ICON_HOT_STOP
               
               on_widget_selected do
-                self.stopped = !@stopped
+                toggle_metronome!
                 ti.image = @stopped ? ICON_PLAY : ICON_STOP
                 ti.hot_image = @stopped ? ICON_HOT_PLAY : ICON_HOT_STOP
-                if @stopped
-                  stop_metronome
-                else
-                  start_metronome
-                end
               end
             }
             
@@ -97,7 +92,7 @@ class GlimmerMetronome
           spinner {
             minimum 1
             maximum 64
-            selection <=> [@rhythm, 'beat_count', after_write: ->(v) {restart_metronome}]
+            selection <=> [@rhythm, 'beat_count', after_write: ->(v) {rebuild_beat_container}]
             font height: 30
           }
           
@@ -116,18 +111,18 @@ class GlimmerMetronome
           beat_container
           
           on_swt_show {
-            start_metronome
+            start_metronome!
           }
           
           on_widget_disposed {
-            stop_metronome
+            stop_metronome!
           }
         }
       }
       
       def beat_container
         @beat_container = composite {
-          if @rhythm.beat_count <= 8
+          if @rhythm.beat_count < 8
             grid_layout(@rhythm.beat_count, true)
           else
             grid_layout(8, true)
@@ -150,16 +145,38 @@ class GlimmerMetronome
         }
       end
       
-      def start_metronome
+      def start_metronome!
+        self.stopped = false
         @thread ||= Thread.new do
           @rhythm.beat_count.times.cycle { |n|
             @rhythm.beats.each(&:off!)
-            @rhythm.beats[n].on! unless stopped?
+            break if stopped?
+            @rhythm.beats[n].on!
+            break if stopped?
             sound_file = n == 0 ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
-            play_sound(sound_file) unless stopped?
-            sleep(60.0/@rhythm.bpm.to_f) unless stopped?
+            play_sound(sound_file)
+            break if stopped?
+            sleep(60.0/@rhythm.bpm.to_f)
           }
+          @thread = nil
         end
+        build_beat_container
+      end
+      
+      def stop_metronome!
+        self.stopped = true
+        @rhythm.beats.each(&:off!)
+      end
+      
+      def toggle_metronome!
+        if stopped?
+          start_metronome!
+        else
+          stop_metronome!
+        end
+      end
+      
+      def build_beat_container
         if @beat_container.nil?
           body_root.content {
             beat_container
@@ -170,16 +187,14 @@ class GlimmerMetronome
         end
       end
       
-      def stop_metronome
-        self.stopped = true
+      def rebuild_beat_container
         @rhythm.beats.each(&:off!)
-        @thread&.kill # slightly dangerous, but cuts off sleep delay
+        @stopped = true
+        @thread&.kill # safe in this case
         @thread = nil
-      end
-      
-      def restart_metronome
-        stop_metronome
-        start_metronome
+        @beat_container&.dispose
+        @beat_container = nil
+        start_metronome!
       end
       
       # Play sound with the Java Sound library
