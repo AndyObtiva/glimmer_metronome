@@ -113,7 +113,7 @@ class GlimmerMetronome
             font height: 30
           }
           
-          @beat_container = beat_container
+          beat_container
           
           on_swt_show {
             start_metronome
@@ -126,8 +126,12 @@ class GlimmerMetronome
       }
       
       def beat_container
-        composite {
-          grid_layout(@rhythm.beat_count, true)
+        @beat_container = composite {
+          if @rhythm.beat_count <= 8
+            grid_layout(@rhythm.beat_count, true)
+          else
+            grid_layout(8, true)
+          end
           
           @rhythm.beat_count.times { |n|
             canvas {
@@ -158,10 +162,11 @@ class GlimmerMetronome
         end
         if @beat_container.nil?
           body_root.content {
-            @beat_container = beat_container
+            beat_container
           }
           body_root.layout(true, true)
           body_root.pack(true)
+          body_root.center_within_display
         end
       end
       
