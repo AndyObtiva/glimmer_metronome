@@ -174,32 +174,34 @@ class GlimmerMetronome
       
       def build_beats
         stop_metronome!
-        beat_count = @rhythm.beat_count
-        beat_change = beat_count != @beats.count
-        if beat_count > @beats.count
+        beat_container_layout_change = @rhythm.beat_count != @beats.count && (@rhythm.beat_count < 9 || @beats.count < 9)
+        if @rhythm.beat_count > @beats.count
           index_start = @beats.count
           @beat_container.content {
-            @beats += (beat_count - @beats.count).times.map do |n|
+            @beats += (@rhythm.beat_count - @beats.count).times.map do |n|
               beat(index_start + n)
             end
           }
-        elsif beat_count < @beats.count
-          @beats[-(@beats.count - beat_count)..-1].each(&:dispose)
-          @beats = @beats[0...-(@beats.count - beat_count)]
+        elsif @rhythm.beat_count < @beats.count
+          first_index_to_dispose = -(@beats.count - @rhythm.beat_count)
+          @beats[first_index_to_dispose..-1].each(&:dispose)
+          @beats = @beats[0...first_index_to_dispose]
         end
-        if beat_change
-          @beat_container.content {
-            if @rhythm.beat_count < 8
-              grid_layout(@rhythm.beat_count, true)
-            else
-              grid_layout(8, true)
-            end
-          }
-          body_root.layout(true, true)
-          body_root.pack(true)
-          body_root.center_within_display
-        end
+        update_beat_container_layout if beat_container_layout_change
         start_metronome!
+      end
+      
+      def update_beat_container_layout
+        @beat_container.content {
+          if @rhythm.beat_count < 8
+            grid_layout(@rhythm.beat_count, true)
+          else
+            grid_layout(8, true)
+          end
+        }
+        body_root.layout(true, true)
+        body_root.pack(true)
+        body_root.center_within_display
       end
       
       # Play sound with the Java Sound library
