@@ -27,7 +27,7 @@ class GlimmerMetronome
       background :red
     }
     
-    polygon(9, 14, 12, 14, 19, 10, 19, 26, 12, 22, 9, 22) {
+    polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :white
     }
   }
@@ -40,7 +40,7 @@ class GlimmerMetronome
       background :red
     }
     
-    polygon(9, 14, 12, 14, 19, 10, 19, 26, 12, 22, 9, 22) {
+    polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :yellow
     }
   }
@@ -53,7 +53,7 @@ class GlimmerMetronome
       background :red
     }
     
-    polygon(9, 14, 12, 14, 19, 10, 19, 26, 12, 22, 9, 22) {
+    polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :white
     }
     
@@ -80,7 +80,7 @@ class GlimmerMetronome
       background :red
     }
     
-    polygon(9, 14, 12, 14, 19, 10, 19, 26, 12, 22, 9, 22) {
+    polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :yellow
     }
     
