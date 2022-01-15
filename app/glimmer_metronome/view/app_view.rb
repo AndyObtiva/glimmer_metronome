@@ -109,14 +109,10 @@ class GlimmerMetronome
           }
           
           @beat_container = composite {
-            if @rhythm.beat_count < 8
-              grid_layout(@rhythm.beat_count, true)
-            else
-              grid_layout(8, true)
-            end
+            grid_layout(@rhythm.beat_count, true)
             
-            @beat_canvases = @rhythm.beat_count.times.map { |n|
-              beat_canvas(n)
+            @beats = @rhythm.beat_count.times.map { |n|
+              beat(n)
             }
           }
           
@@ -130,7 +126,7 @@ class GlimmerMetronome
         }
       }
       
-      def beat_canvas(beat_index)
+      def beat(beat_index)
         canvas {
           layout_data {
             width_hint 50
@@ -179,17 +175,17 @@ class GlimmerMetronome
       def build_beats
         stop_metronome!
         beat_count = @rhythm.beat_count
-        beat_change = beat_count != @beat_canvases.count
-        if beat_count > @beat_canvases.count
-          index_start = @beat_canvases.count
+        beat_change = beat_count != @beats.count
+        if beat_count > @beats.count
+          index_start = @beats.count
           @beat_container.content {
-            @beat_canvases += (beat_count - @beat_canvases.count).times.map do |n|
-              beat_canvas(index_start + n)
+            @beats += (beat_count - @beats.count).times.map do |n|
+              beat(index_start + n)
             end
           }
-        elsif beat_count < @beat_canvases.count
-          @beat_canvases[-(@beat_canvases.count - beat_count)..-1].each(&:dispose)
-          @beat_canvases = @beat_canvases[0...-(@beat_canvases.count - beat_count)]
+        elsif beat_count < @beats.count
+          @beats[-(@beats.count - beat_count)..-1].each(&:dispose)
+          @beats = @beats[0...-(@beats.count - beat_count)]
         end
         if beat_change
           @beat_container.content {
