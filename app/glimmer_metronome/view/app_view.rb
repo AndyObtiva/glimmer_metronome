@@ -30,6 +30,8 @@ class GlimmerMetronome
       
       FILE_SOUND_METRONOME_UP = File.join(APP_ROOT, 'sounds', 'metronome-up.wav')
       FILE_SOUND_METRONOME_DOWN = File.join(APP_ROOT, 'sounds', 'metronome-down.wav')
+      COLOR_BEAT_UP = :yellow
+      COLOR_BEAT_DOWN = :white
           
       attr_accessor :muted, :stopped
       alias muted? muted
@@ -141,20 +143,20 @@ class GlimmerMetronome
           background :red
           
           rectangle(0, 0, :default, :default, 36, 36) {
-            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { up ? :yellow : :white}]
-            
-            on_mouse_up do
-              if @rhythm.beats[beat_index].up?
-                @rhythm.beats[beat_index].down!
-              else
-                @rhythm.beats[beat_index].up!
-              end
-            end
+            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { up ? COLOR_BEAT_UP : COLOR_BEAT_DOWN}]
           }
           polygon(18, 16, 34, 25, 18, 34) {
-            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : (@rhythm.beats[beat_index].up? ? :yellow : :white)}]
-            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { @rhythm.beats[beat_index].on? ? :black : (up ? :yellow : :white)}]
+            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : (@rhythm.beats[beat_index].up? ? COLOR_BEAT_UP : COLOR_BEAT_DOWN)}]
+            background <= [@rhythm, "beats[#{beat_index}].up", on_read: ->(up) { @rhythm.beats[beat_index].on? ? :black : (up ? COLOR_BEAT_UP : COLOR_BEAT_DOWN)}]
           }
+          
+          on_mouse_up do
+            if @rhythm.beats[beat_index].up?
+              @rhythm.beats[beat_index].down!
+            else
+              @rhythm.beats[beat_index].up!
+            end
+          end
         }
       end
       
