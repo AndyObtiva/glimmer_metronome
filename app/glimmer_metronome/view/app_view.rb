@@ -59,6 +59,8 @@ class GlimmerMetronome
         shell(:no_resize) {
           row_layout(:vertical) {
             center true
+            margin_width 20
+            margin_height 20
           }
           text 'Glimmer Metronome'
           background :red

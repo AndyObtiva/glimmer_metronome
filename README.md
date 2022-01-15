@@ -1,8 +1,10 @@
-# <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=85 /> Glimmer Metronome
+# <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=85 /> Glimmer Metronome 1.1.0
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
-<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.0.0 DMG for Mac (X64 Catalina and Older)](https://www.dropbox.com/s/bjy4hie74gmxb5d/Glimmer%20Metronome-1.0.0.dmg?dl=1)
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.0 DMG for Mac (X64 Catalina and Older)](https://www.dropbox.com/s/hbmztzi0q8ilca5/Glimmer%20Metronome-1.1.0.dmg?dl=1)
+
+![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)
 
 Metronome
 
@@ -12,20 +14,24 @@ Beat Count Change
 
 ![metronome beat count changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-beat-count-changed.png)
 
-BPM Change
+Tempo Change
 
-![metronome bpm changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-bpm-changed.png)
+![metronome tempo changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-tempo-changed.png)
+
+Up Beat Change (via Mouse-Click on Beats To Toggle Up [Yellow] or Down [White])
+
+![metronome up beats changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
 
 ## Demo
 
-![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)
+[Video/Audio Demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4)
 
 ## Ruby Gem Instructions
 
 If you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), then follow these instructions:
 
 - Ensure you have [Glimmer DSL for SWT 4.22.1.1 prerequisites setup (like JDK and JRuby)](https://github.com/AndyObtiva/glimmer-dsl-swt/tree/v4.22.1.1#pre-requisites).
-- Install gem via `gem install glimmer_metronome` command
+- Install gem via `gem install glimmer_metronome -v1.1.0` command
 - Run `glimmer_metronome` command to start application
 
 ## Contributing
