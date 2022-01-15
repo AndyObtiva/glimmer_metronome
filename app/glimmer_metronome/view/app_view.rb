@@ -150,10 +150,10 @@ class GlimmerMetronome
         @thread ||= Thread.new do
           @rhythm.beat_count.times.cycle { |n|
             @rhythm.beats.each(&:off!)
-            @rhythm.beats[n].on!
+            @rhythm.beats[n].on! unless stopped?
             sound_file = n == 0 ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
-            play_sound(sound_file)
-            sleep(60.0/@rhythm.bpm.to_f)
+            play_sound(sound_file) unless stopped?
+            sleep(60.0/@rhythm.bpm.to_f) unless stopped?
           }
         end
         if @beat_container.nil?
@@ -166,8 +166,9 @@ class GlimmerMetronome
       end
       
       def stop_metronome
+        self.stopped = true
         @rhythm.beats.each(&:off!)
-        @thread&.kill # safe since no stored data is involved
+        @thread&.kill # slightly dangerous, but cuts off sleep delay
         @thread = nil
       end
       
