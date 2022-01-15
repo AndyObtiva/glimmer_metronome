@@ -92,7 +92,7 @@ class GlimmerMetronome
           spinner {
             minimum 1
             maximum 64
-            selection <=> [@rhythm, :beat_count, after_write: method(:rebuild_beat_container)]
+            selection <=> [@rhythm, :beat_count, after_write: method(:build_beats)]
             font height: 30
           }
           
@@ -108,10 +108,20 @@ class GlimmerMetronome
             font height: 30
           }
           
-          beat_container
+          @beat_container = composite {
+            if @rhythm.beat_count < 8
+              grid_layout(@rhythm.beat_count, true)
+            else
+              grid_layout(8, true)
+            end
+            
+            @beat_canvases = @rhythm.beat_count.times.map { |n|
+              beat_canvas(n)
+            }
+          }
           
           on_swt_show {
-            start_metronome!
+            build_beats
           }
           
           on_widget_disposed {
@@ -120,27 +130,17 @@ class GlimmerMetronome
         }
       }
       
-      def beat_container
-        @beat_container = composite {
-          if @rhythm.beat_count < 8
-            grid_layout(@rhythm.beat_count, true)
-          else
-            grid_layout(8, true)
-          end
-          
-          @rhythm.beat_count.times { |n|
-            canvas {
-              layout_data {
-                width_hint 50
-                height_hint 50
-              }
-              rectangle(0, 0, :default, :default, 36, 36) {
-                background <= [@rhythm, "beats[#{n}].on", on_read: ->(on) { on ? :red : :yellow}]
-              }
-              polygon(18, 16, 34, 25, 18, 34) {
-                background <= [@rhythm, "beats[#{n}].on", on_read: ->(on) { on ? :black : :yellow}]
-              }
-            }
+      def beat_canvas(beat_index)
+        canvas {
+          layout_data {
+            width_hint 50
+            height_hint 50
+          }
+          rectangle(0, 0, :default, :default, 36, 36) {
+            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :red : :yellow}]
+          }
+          polygon(18, 16, 34, 25, 18, 34) {
+            background <= [@rhythm, "beats[#{beat_index}].on", on_read: ->(on) { on ? :black : :yellow}]
           }
         }
       end
@@ -149,13 +149,16 @@ class GlimmerMetronome
         self.stopped = false
         @thread ||= Thread.new do
           @rhythm.beat_count.times.cycle { |n|
-            @rhythm.on_beat!(n)
+            begin
+              @rhythm.on_beat!(n)
+            rescue => e
+              puts e.full_message
+            end
             sound_file = n == 0 ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
             play_sound(sound_file)
             sleep(60.0/@rhythm.tempo.to_f)
           }
         end
-        build_beat_container
       end
       
       def stop_metronome!
@@ -173,21 +176,33 @@ class GlimmerMetronome
         end
       end
       
-      def build_beat_container
-        if @beat_container.nil?
-          body_root.content {
-            beat_container
+      def build_beats
+        stop_metronome!
+        beat_count = @rhythm.beat_count
+        beat_change = beat_count != @beat_canvases.count
+        if beat_count > @beat_canvases.count
+          index_start = @beat_canvases.count
+          @beat_container.content {
+            @beat_canvases += (beat_count - @beat_canvases.count).times.map do |n|
+              beat_canvas(index_start + n)
+            end
+          }
+        elsif beat_count < @beat_canvases.count
+          @beat_canvases[-(@beat_canvases.count - beat_count)..-1].each(&:dispose)
+          @beat_canvases = @beat_canvases[0...-(@beat_canvases.count - beat_count)]
+        end
+        if beat_change
+          @beat_container.content {
+            if @rhythm.beat_count < 8
+              grid_layout(@rhythm.beat_count, true)
+            else
+              grid_layout(8, true)
+            end
           }
           body_root.layout(true, true)
           body_root.pack(true)
           body_root.center_within_display
         end
-      end
-      
-      def rebuild_beat_container
-        stop_metronome!
-        @beat_container&.dispose
-        @beat_container = nil
         start_metronome!
       end
       

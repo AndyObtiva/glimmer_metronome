@@ -45,12 +45,21 @@ class GlimmerMetronome
       end
       
       def off!
-        beats.find(&:on)&.off!
+        beats.select(&:on).each(&:off!)
       end
       
       def reset_beats!
-        @beats = beat_count.times.map {Beat.new}
-        @beats.first.on!
+        if @beats
+          off!
+          if beat_count > @beats.count
+            @beats += (beat_count - @beats.count).times.map {Beat.new}
+          elsif beat_count < @beats.count
+            @beats = @beats[0, @beats.count]
+          end
+        else
+          @beats = beat_count.times.map {Beat.new}
+        end
+        on_beat!(0)
       end
       
       def tap!
