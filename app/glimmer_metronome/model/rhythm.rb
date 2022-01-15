@@ -27,16 +27,25 @@ class GlimmerMetronome
   module Model
     class Rhythm
       attr_reader :beat_count
-      attr_accessor :beats, :bpm
+      attr_accessor :beats, :tempo
       
       def initialize(beat_count)
         self.beat_count = beat_count
-        @bpm = 120
+        @tempo = 120
       end
       
       def beat_count=(value)
         @beat_count = value
         reset_beats!
+      end
+      
+      def on_beat!(beat_index)
+        off!
+        beats[beat_index].on!
+      end
+      
+      def off!
+        beats.find(&:on)&.off!
       end
       
       def reset_beats!
@@ -59,7 +68,7 @@ class GlimmerMetronome
         end
         if time_difference
           if time_difference < 2
-            self.bpm = (BigDecimal('60.0') / time_difference)
+            self.tempo = (BigDecimal('60.0') / time_difference)
           else
             @tap_time = []
           end

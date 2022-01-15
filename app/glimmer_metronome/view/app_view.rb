@@ -92,7 +92,7 @@ class GlimmerMetronome
           spinner {
             minimum 1
             maximum 64
-            selection <=> [@rhythm, 'beat_count', after_write: method(:rebuild_beat_container)]
+            selection <=> [@rhythm, :beat_count, after_write: method(:rebuild_beat_container)]
             font height: 30
           }
           
@@ -104,7 +104,7 @@ class GlimmerMetronome
           spinner {
             minimum 30
             maximum 1000
-            selection <=> [@rhythm, 'bpm']
+            selection <=> [@rhythm, :tempo]
             font height: 30
           }
           
@@ -149,11 +149,10 @@ class GlimmerMetronome
         self.stopped = false
         @thread ||= Thread.new do
           @rhythm.beat_count.times.cycle { |n|
-            @rhythm.beats.each(&:off!)
-            @rhythm.beats[n].on!
+            @rhythm.on_beat!(n)
             sound_file = n == 0 ? FILE_SOUND_METRONOME_UP : FILE_SOUND_METRONOME_DOWN
             play_sound(sound_file)
-            sleep(60.0/@rhythm.bpm.to_f)
+            sleep(60.0/@rhythm.tempo.to_f)
           }
         end
         build_beat_container
@@ -163,7 +162,7 @@ class GlimmerMetronome
         self.stopped = true
         @thread&.kill # not dangerous in this case and is useful to stop sleep
         @thread = nil
-        @rhythm.beats.each(&:off!)
+        @rhythm.off!
       end
       
       def toggle_metronome!
