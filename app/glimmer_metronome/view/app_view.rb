@@ -78,13 +78,13 @@ class GlimmerMetronome
             }
             
             tool_item { |ti|
-              image ICON_MUTE
+              image ICON_SOUND
               hot_image ICON_HOT_MUTE
               
               on_widget_selected do
                 self.muted = !@muted
-                ti.image = @muted ? ICON_SOUND : ICON_MUTE
-                ti.hot_image = @muted ? ICON_HOT_SOUND : ICON_HOT_MUTE`
+                ti.image = @muted ? ICON_MUTE : ICON_SOUND
+                ti.hot_image = @muted ? ICON_HOT_SOUND : ICON_HOT_MUTE
               end
             }
           }

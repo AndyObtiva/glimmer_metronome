@@ -30,6 +30,27 @@ class GlimmerMetronome
     polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :white
     }
+    
+    arc(8, 11, 14, 14, 40, -80) {
+      foreground :white
+      line_width 2
+      line_join :round
+      line_cap :round
+    }
+    
+    arc(6, 8, 20, 20, 40, -80) {
+      foreground :white
+      line_width 2
+      line_join :round
+      line_cap :round
+    }
+    
+    arc(4, 5, 26, 26, 40, -80) {
+      foreground :white
+      line_width 2
+      line_join :round
+      line_cap :round
+    }
   }
   ICON_HOT_SOUND = image(36, 36) {
     rectangle(0, 0, 36, 36) {
@@ -42,6 +63,27 @@ class GlimmerMetronome
     
     polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :yellow
+    }
+    
+    arc(8, 11, 14, 14, 40, -80) {
+      foreground :yellow
+      line_width 2
+      line_join :round
+      line_cap :round
+    }
+    
+    arc(6, 8, 20, 20, 40, -80) {
+      foreground :yellow
+      line_width 2
+      line_join :round
+      line_cap :round
+    }
+    
+    arc(4, 5, 26, 26, 40, -80) {
+      foreground :yellow
+      line_width 2
+      line_join :round
+      line_cap :round
     }
   }
   ICON_MUTE = image(36, 36) {
@@ -56,20 +98,6 @@ class GlimmerMetronome
     polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :white
     }
-    
-    line(22, 15, 28, 21) {
-      foreground :white
-      line_width 3
-      line_join :round
-      line_cap :round
-    }
-    
-    line(22, 21, 28, 15) {
-      foreground :white
-      line_width 3
-      line_join :round
-      line_cap :round
-    }
   }
   ICON_HOT_MUTE = image(36, 36) {
     rectangle(0, 0, 36, 36) {
@@ -82,20 +110,6 @@ class GlimmerMetronome
     
     polygon(7, 14, 11, 14, 18, 10, 18, 26, 11, 22, 7, 22) {
       background :yellow
-    }
-    
-    line(22, 15, 28, 21) {
-      foreground :yellow
-      line_width 3
-      line_join :round
-      line_cap :round
-    }
-    
-    line(22, 21, 28, 15) {
-      foreground :yellow
-      line_width 3
-      line_join :round
-      line_cap :round
     }
   }
   ICON_STOP = image(36, 36) {
