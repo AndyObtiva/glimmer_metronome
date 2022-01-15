@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.1.1
+
+- Avoid opening audio clip if muted
+- Clean audio clip resources after performing clip.open and clip.start
+
 ## 1.1.0
 
 - Tap-based calculation of tempo through hitting ENTER key

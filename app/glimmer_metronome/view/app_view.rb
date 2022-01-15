@@ -227,15 +227,20 @@ class GlimmerMetronome
       
       # Play sound with the Java Sound library
       def play_sound(sound_file)
+        return if @muted
         begin
           audio_input = build_audio_input(sound_file)
           audio_stream = AudioSystem.get_audio_input_stream(audio_input)
           clip = AudioSystem.clip
           clip.open(audio_stream)
-          # TODO avoid starting if mute is on e.g. unless muted?
-          clip.start unless @muted
+          clip.start
         rescue => e
           puts e.full_message
+        ensure
+          Thread.new do
+            sleep(0.01) while clip.running?
+            clip.close
+          end
         end
       end
       

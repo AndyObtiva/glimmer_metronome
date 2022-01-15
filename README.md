@@ -2,7 +2,7 @@
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
-<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.0 DMG for Mac (X64 Catalina and Older)](https://www.dropbox.com/s/hbmztzi0q8ilca5/Glimmer%20Metronome-1.1.0.dmg?dl=1)
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.0 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/hbmztzi0q8ilca5/Glimmer%20Metronome-1.1.0.dmg?dl=1)
 
 ![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)
 
@@ -14,11 +14,11 @@ Beat Count Change
 
 ![metronome beat count changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-beat-count-changed.png)
 
-Tempo Change
+Tempo Change (hit ENTER repeatedly to auto-calculate tempo)
 
 ![metronome tempo changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-tempo-changed.png)
 
-Up Beat Change (via Mouse-Click on Beats To Toggle Up [Yellow] or Down [White])
+Up Beat Change (via mouse-click on beats to toggle up [yellow] or down [white])
 
 ![metronome up beats changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
 
