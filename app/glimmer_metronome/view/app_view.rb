@@ -65,6 +65,74 @@ class GlimmerMetronome
           text 'Glimmer Metronome'
           background :red
           
+          menu_bar {
+            menu {
+              text '&Action'
+              
+              menu_item {
+                text '&Start'
+                
+                on_widget_selected do
+                  start_metronome! if stopped?
+                end
+              }
+              
+              menu_item {
+                text '&Stop'
+                
+                on_widget_selected do
+                  stop_metronome! unless stopped?
+                end
+              }
+              
+              menu_item(:check) {
+                text '&Mute'
+                
+                on_widget_selected do
+                  self.muted = !muted?
+                end
+              }
+              
+              menu_item(:separator)
+              
+              menu_item {
+                text 'E&xit'
+                accelerator :alt, :f4
+                
+                on_widget_selected do
+                  exit(0)
+                end
+              }
+            }
+            
+            menu {
+              text '&Help'
+              
+              menu_item {
+                text '&Tips'
+                
+                on_widget_selected do
+                  message_box {
+                    text 'Glimmer Metronome - Instructions'
+                    message <<~MULTI_LINE_STRING
+                      Tap ENTER repeatedly to get Tempo calculated automatically
+                      
+                      Click a beat to change it between an Up beat (yellow) and Down beat (white)
+                    MULTI_LINE_STRING
+                  }.open
+                end
+              }
+              
+              menu_item {
+                text '&About'
+                
+                on_widget_selected do
+                  display_about_dialog
+                end
+              }
+            }
+          }
+          
           tool_bar {
             tool_item { |ti|
               image ICON_STOP

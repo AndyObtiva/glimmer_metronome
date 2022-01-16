@@ -1,8 +1,9 @@
 # TODO
 
-- Menu bar
+- Start and Stop menu items
 
 - Change font
+- Disable beats
 
 ## Maybe
 
