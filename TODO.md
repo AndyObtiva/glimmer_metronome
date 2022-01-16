@@ -1,6 +1,7 @@
 # TODO
 
-- Start and Stop menu items
+- Start and Stop menu items (ensuring they are in sync with toolbar buttons)
+- Mute menu item (ensuring they are in sync with toolbar buttons)
 
 - Change font
 - Disable beats

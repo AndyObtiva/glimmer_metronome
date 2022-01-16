@@ -67,45 +67,6 @@ class GlimmerMetronome
           
           menu_bar {
             menu {
-              text '&Action'
-              
-              menu_item {
-                text '&Start'
-                
-                on_widget_selected do
-                  start_metronome! if stopped?
-                end
-              }
-              
-              menu_item {
-                text '&Stop'
-                
-                on_widget_selected do
-                  stop_metronome! unless stopped?
-                end
-              }
-              
-              menu_item(:check) {
-                text '&Mute'
-                
-                on_widget_selected do
-                  self.muted = !muted?
-                end
-              }
-              
-              menu_item(:separator)
-              
-              menu_item {
-                text 'E&xit'
-                accelerator :alt, :f4
-                
-                on_widget_selected do
-                  exit(0)
-                end
-              }
-            }
-            
-            menu {
               text '&Help'
               
               menu_item {
@@ -113,7 +74,7 @@ class GlimmerMetronome
                 
                 on_widget_selected do
                   message_box {
-                    text 'Glimmer Metronome - Instructions'
+                    text 'Glimmer Metronome - Tips'
                     message <<~MULTI_LINE_STRING
                       Tap ENTER repeatedly to get Tempo calculated automatically
                       

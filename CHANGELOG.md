@@ -2,7 +2,7 @@
 
 ## 1.1.1
 
-- Menu bar with Mute, Help Tips, and About
+- Menu bar with Help Tips and About
 - Avoid opening audio clip if muted
 - Clean audio clip resources after performing clip.open and clip.start
 
