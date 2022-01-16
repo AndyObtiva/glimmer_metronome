@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.2
+
+- ARM64/AARCH64 support via jruby-9.3.3.0 & glimmer-dsl-swt v4.22.2.1
+
 ## 1.1.1
 
 - Menu bar with Help Tips and About

@@ -18,7 +18,7 @@ Juwelier::Tasks.new do |gem|
   gem.homepage = "http://github.com/AndyObtiva/glimmer_metronome"
   gem.license = "MIT"
   gem.summary = %Q{Glimmer Metronome}
-  gem.description = %Q{Glimmer Metronome (JRuby application built with Glimmer DSL for SWT) - Supports changing beat count, tempo, up/down beats, tap-based tempo calculation, mute, and stop/start.}
+  gem.description = %Q{Glimmer Metronome (JRuby application built with Glimmer DSL for SWT) - Supports different beat counts, tempos, up/down beats, tap-based tempo calculation, mute, and stop/start.}
   gem.email = "andy.am@gmail.com"
   gem.authors = ["Andy Maleh"]
 

@@ -1,6 +1,8 @@
-# <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=85 /> Glimmer Metronome 1.1.1
+# <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=85 /> Glimmer Metronome 1.1.2
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
+
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.2 DMG for Mac (ARM64 Monterey and Older)](https://www.dropbox.com/s/u365a4an9lo3a88/Glimmer%20Metronome-1.1.2.dmg?dl=1)
 
 <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.1 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/ecwe0ukjldag6hu/Glimmer%20Metronome-1.1.1.dmg?dl=1)
 
@@ -22,17 +24,35 @@ Up Beat Change (via mouse-click on beats to toggle up [yellow] or down [white])
 
 ![metronome up beats changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
 
+For hardcore music buffs out there who are shocked at my reversal or wrong usage of Up beat and Down beat, here are few explanations to keep in mind. First of all, I am a drumkit (Rock) drummer, not a melodic musician. As such, drumkit drummers call every beat on the rhythm count a DOWNBEAT (i.e. 1, 2, 3, 4). Next, I am a Punk Rocker and I've been known to do some Punk drumming. What do I mean by that!? Punk drummers have a complete lack of respect for music rules. In fact, they write their own rules every day, and OFTEN IN TOTAL OPPOSITION TO MUSIC RULES. So, I just came up with the idea of calling the first beat the UPBEAT because the Metronome makes this HIGHER note shrill sound when it clicks on the first beat. Thank you for your understanding and have an awesome Punk Rocking day while at it!
+
 ## Demo
 
 [Video/Audio Demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4)
 
-## Ruby Gem Instructions
+## Software Setup Instructions
 
-If you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), then follow these instructions:
+You may download a pre-packaged version:
 
-- Ensure you have [Glimmer DSL for SWT 4.22.1.1 prerequisites setup (like JDK and JRuby)](https://github.com/AndyObtiva/glimmer-dsl-swt/tree/v4.22.1.1#pre-requisites).
-- Install gem via `gem install glimmer_metronome -v1.1.1` command
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.2 DMG for Mac (ARM64 Monterey and Older)](https://www.dropbox.com/s/u365a4an9lo3a88/Glimmer%20Metronome-1.1.2.dmg?dl=1)
+
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.1 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/ecwe0ukjldag6hu/Glimmer%20Metronome-1.1.1.dmg?dl=1)
+
+Alternatively, if you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), you may follow these instructions:
+
+- Ensure you have [Glimmer DSL for SWT 4.22.2.1 prerequisites setup (like JDK and JRuby)](https://github.com/AndyObtiva/glimmer-dsl-swt/tree/v4.22.2.1#pre-requisites).
+- Install gem via `gem install glimmer_metronome -v1.1.2` command
 - Run `glimmer_metronome` command to start application
+
+Lastly, you can package a native executable for your specific system (e.g. produce MSI/EXE file on Windows 10 x64) by following these instructions instead:
+- Ensure you have [Glimmer DSL for SWT 4.22.2.1 prerequisites setup (like JDK and JRuby)](https://github.com/AndyObtiva/glimmer-dsl-swt/tree/v4.22.2.1#pre-requisites).
+- Clone repo: `git clone https://github.com/AndyObtiva/glimmer_metronome.git` (or `git clone git@github.com:AndyObtiva/glimmer_metronome.git` if you prefer SSH)
+- Go into directory: `cd glimmer_metronome`
+- Install project gems: `bundle`
+- Package native executable with `glimmer package` to produce APP on Mac, native project directory with exe on Windows, and native project with binary on Linux
+- Package native executable with `glimmer "package[dmg]"` to produce DMG file on Mac
+- Package native executable with `glimmer "package[msi]"` to produce MSI installer on Windows (assuming you installed the [WiX Toolset](https://wixtoolset.org/) as per the instructions at [Glimmer DSL for SWT Packaging & Distribution](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md))
+- You can also directly run the project from the cloned repo directory with `glimmer run`
 
 ## Contributing
 
