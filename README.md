@@ -1,4 +1,4 @@
-# <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=85 /> Glimmer Metronome 1.1.2
+# <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=85 /> Glimmer Metronome 1.1.3
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
@@ -41,7 +41,7 @@ You may download a pre-packaged version:
 Alternatively, if you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), you may follow these instructions:
 
 - Ensure you have [Glimmer DSL for SWT 4.22.2.1 prerequisites setup (like JDK and JRuby)](https://github.com/AndyObtiva/glimmer-dsl-swt/tree/v4.22.2.1#pre-requisites).
-- Install gem via `gem install glimmer_metronome -v1.1.2` command
+- Install gem via `gem install glimmer_metronome -v1.1.3` command
 - Run `glimmer_metronome` command to start application
 
 Lastly, you can package a native executable for your specific system (e.g. produce MSI/EXE file on Windows 10 x64) by following these instructions instead:
@@ -74,7 +74,7 @@ Lastly, you can package a native executable for your specific system (e.g. produ
 
 [MIT](LICENSE.txt)
 
-Copyright (c) 2022 Andy Maleh. See [LICENSE.txt](LICENSE.txt) for further details.
+Copyright (c) 2022-2023 Andy Maleh. See [LICENSE.txt](LICENSE.txt) for further details.
 
 --
 
