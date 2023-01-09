@@ -1,8 +1,5 @@
 # TODO
 
-- Fix issue with starting a stopped metronome when changing the beat count (with the play button status stuck as stopped)
-- Support ARM64/AARCH64 by upgrading to Glimmer DSL for SWT 4.22.2.1
-- Issue with Stopping Metronome and then Changing Beat Count replaying Metronome while keeping Stop button showing Play logo (like it did not play)
 - Start and Stop menu items (ensuring they are in sync with toolbar buttons)
 - Mute menu item (ensuring they are in sync with toolbar buttons)
 

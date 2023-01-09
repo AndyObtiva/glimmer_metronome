@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.3
+
+- Fix issue with changing the beat count while the metronome is stopped resulting in starting the metronome while the play button status is stuck as if it is stopped
+
 ## 1.1.2
 
 - ARM64/AARCH64 support via jruby-9.3.3.0 & glimmer-dsl-swt v4.22.2.1

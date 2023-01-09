@@ -223,7 +223,8 @@ class GlimmerMetronome
       end
       
       def build_beats
-        stop_metronome!
+        initially_stopped = stopped
+        stop_metronome! unless initially_stopped
         beat_container_layout_change = @rhythm.beat_count != @beats.count && (@rhythm.beat_count < 9 || @beats.count < 9)
         if @rhythm.beat_count > @beats.count
           index_start = @beats.count
@@ -238,7 +239,7 @@ class GlimmerMetronome
           @beats = @beats[0...first_index_to_dispose]
         end
         update_beat_container_layout if beat_container_layout_change
-        start_metronome!
+        start_metronome! unless initially_stopped
       end
       
       def update_beat_container_layout
