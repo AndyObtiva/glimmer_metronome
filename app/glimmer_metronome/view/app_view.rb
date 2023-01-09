@@ -67,6 +67,35 @@ class GlimmerMetronome
           
           menu_bar {
             menu {
+              text '&Action'
+              
+              menu_item {
+                text '&Play'
+                
+                on_widget_selected do
+                  start_metronome!
+                end
+              }
+              
+              menu_item {
+                text '&Stop'
+                
+                on_widget_selected do
+                  stop_metronome!
+                end
+              }
+              
+              menu_item { |mi|
+                text '&Mute'
+                
+                on_widget_selected do
+                  self.muted = !@muted
+                  mi.text = self.muted ? '&Unmute' : '&Mute'
+                end
+              }
+            }
+            
+            menu {
               text '&Help'
               
               menu_item {

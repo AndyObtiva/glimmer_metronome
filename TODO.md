@@ -1,7 +1,9 @@
 # TODO
 
-- Start and Stop menu items (ensuring they are in sync with toolbar buttons)
-- Mute menu item (ensuring they are in sync with toolbar buttons)
+- Start and Stop menu items (ensuring they are in sync with toolbar buttons) with accelerators
+- Mute menu item (ensuring they are in sync with toolbar buttons) with accelerators
+- menu item for bumping tempo up/down by 1 with accelerators
+- menu item for bumping tempo up/down by 10 with accelerators
 
 - Change font
 - Disable beats
