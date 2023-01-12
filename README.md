@@ -2,7 +2,7 @@
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
-<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.2 DMG for Mac (ARM64 Monterey and Older)](https://www.dropbox.com/s/u365a4an9lo3a88/Glimmer%20Metronome-1.1.2.dmg?dl=1)
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.3 DMG for Mac (ARM64 Ventura and Older)](https://www.dropbox.com/s/pwwpdj3sjggqokz/Glimmer%20Metronome-1.1.3-arm64.dmg?dl=1)
 
 <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.1 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/ecwe0ukjldag6hu/Glimmer%20Metronome-1.1.1.dmg?dl=1)
 
@@ -34,7 +34,7 @@ For hardcore music buffs out there who are shocked at my reversal or wrong usage
 
 You may download a pre-packaged version:
 
-<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.2 DMG for Mac (ARM64 Monterey and Older)](https://www.dropbox.com/s/u365a4an9lo3a88/Glimmer%20Metronome-1.1.2.dmg?dl=1)
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.3 DMG for Mac (ARM64 Ventura and Older)](https://www.dropbox.com/s/pwwpdj3sjggqokz/Glimmer%20Metronome-1.1.3-arm64.dmg?dl=1)
 
 <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.1 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/ecwe0ukjldag6hu/Glimmer%20Metronome-1.1.1.dmg?dl=1)
 
