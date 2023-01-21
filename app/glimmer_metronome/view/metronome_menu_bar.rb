@@ -57,7 +57,7 @@ class GlimmerMetronome
             
             menu_item(:separator)
             
-            menu_item { |mi|
+            menu_item {
               text '&Mute'
               enabled <= [metronome, :muted, on_read: :!]
               accelerator KEY_SHORTCUT, :m
@@ -67,7 +67,7 @@ class GlimmerMetronome
               end
             }
             
-            menu_item { |mi|
+            menu_item {
               text '&Unmute'
               enabled <= [metronome, :muted]
               accelerator KEY_SHORTCUT, :u
@@ -79,7 +79,33 @@ class GlimmerMetronome
             
             menu_item(:separator)
             
-            menu_item { |mi|
+            menu {
+              text '&Beat Count'
+              
+              menu_item {
+                text '&Increment'
+                enabled <= [metronome.rhythm, :beat_count, on_read: ->(value) { value < 64}]
+                accelerator KEY_SHORTCUT, '='
+                
+                on_widget_selected do
+                  metronome.rhythm.beat_count += 1
+                end
+              }
+              
+              menu_item {
+                text '&Decrement'
+                enabled <= [metronome.rhythm, :beat_count, on_read: ->(value) { value > 1}]
+                accelerator KEY_SHORTCUT, '-'
+                
+                on_widget_selected do
+                  metronome.rhythm.beat_count -= 1
+                end
+              }
+            }
+            
+            menu_item(:separator)
+            
+            menu_item {
               text 'E&xit'
               accelerator :alt, :f4
               

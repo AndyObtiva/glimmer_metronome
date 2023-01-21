@@ -28,7 +28,7 @@ class GlimmerMetronome
   
       body {
         tool_bar {
-          tool_item { |ti|
+          tool_item {
             image <= [metronome, :stopped, on_read: ->(value) { value ? ICON_PLAY : ICON_STOP }]
             hot_image <= [metronome, :stopped, on_read: ->(value) { value ? ICON_HOT_PLAY : ICON_HOT_STOP }]
             
@@ -37,7 +37,7 @@ class GlimmerMetronome
             end
           }
           
-          tool_item { |ti|
+          tool_item {
             image <= [metronome, :muted, on_read: ->(value) { value ? ICON_MUTE : ICON_SOUND }]
             hot_image <= [metronome, :muted, on_read: ->(value) { value ? ICON_HOT_SOUND : ICON_HOT_MUTE }]
             

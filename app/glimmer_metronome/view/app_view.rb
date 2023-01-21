@@ -51,6 +51,10 @@ class GlimmerMetronome
         }
       end
       
+      after_body do
+        observe(@metronome.rhythm, :beat_count) { build_beats }
+      end
+      
       body {
         shell(:no_resize) {
           row_layout(:vertical) {
@@ -74,7 +78,7 @@ class GlimmerMetronome
           spinner {
             minimum 1
             maximum 64
-            selection <=> [@metronome.rhythm, :beat_count, after_write: method(:build_beats)]
+            selection <=> [@metronome.rhythm, :beat_count]
             font height: 30
           }
           

@@ -6,6 +6,7 @@
 - Upgrade to glimmer-dsl-swt 4.26.0.1
 - Start and Stop menu items supporting accelerators (keyboard shortcuts)
 - Mute and Unmute menu items supporting accelerators (keyboard shortcuts)
+- Beat Count -> Increment/Decrement menu items supporting accelerators (keyboard shortcuts)
 
 ## 1.1.3
 
