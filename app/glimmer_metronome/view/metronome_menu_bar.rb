@@ -84,7 +84,7 @@ class GlimmerMetronome
               
               menu_item {
                 text '&Increment'
-                enabled <= [metronome.rhythm, :beat_count, on_read: ->(value) { value < 64}]
+                enabled <= [metronome.rhythm, :beat_count, on_read: ->(value) { value < Model::Rhythm::BEAT_COUNT_MAXIMUM}]
                 accelerator KEY_SHORTCUT, '='
                 
                 on_widget_selected do
@@ -94,11 +94,59 @@ class GlimmerMetronome
               
               menu_item {
                 text '&Decrement'
-                enabled <= [metronome.rhythm, :beat_count, on_read: ->(value) { value > 1}]
+                enabled <= [metronome.rhythm, :beat_count, on_read: ->(value) { value > Model::Rhythm::BEAT_COUNT_MINIMUM}]
                 accelerator KEY_SHORTCUT, '-'
                 
                 on_widget_selected do
                   metronome.rhythm.beat_count -= 1
+                end
+              }
+            }
+            
+            menu_item(:separator)
+            
+            menu {
+              text '&Tempo'
+              
+              menu_item {
+                text '&Increment'
+                enabled <= [metronome.rhythm, :tempo, on_read: ->(value) { value < Model::Rhythm::TEMPO_MAXIMUM}]
+                accelerator KEY_SHORTCUT, :arrow_up
+                
+                on_widget_selected do
+                  metronome.rhythm.tempo += 1
+                end
+              }
+              
+              menu_item {
+                text '&Decrement'
+                enabled <= [metronome.rhythm, :tempo, on_read: ->(value) { value > Model::Rhythm::TEMPO_MINIMUM}]
+                accelerator KEY_SHORTCUT, :arrow_down
+                
+                on_widget_selected do
+                  metronome.rhythm.tempo -= 1
+                end
+              }
+              
+              menu_item(:separator)
+              
+              menu_item {
+                text 'I&ncrement by 10'
+                enabled <= [metronome.rhythm, :tempo, on_read: ->(value) { value < (Model::Rhythm::TEMPO_MAXIMUM - 9)}]
+                accelerator KEY_SHORTCUT, :shift, :arrow_up
+                
+                on_widget_selected do
+                  metronome.rhythm.tempo += 10
+                end
+              }
+              
+              menu_item {
+                text 'De&crement by 10'
+                enabled <= [metronome.rhythm, :tempo, on_read: ->(value) { value > (Model::Rhythm::TEMPO_MINIMUM + 9)}]
+                accelerator KEY_SHORTCUT, :shift, :arrow_down
+                
+                on_widget_selected do
+                  metronome.rhythm.tempo -= 10
                 end
               }
             }

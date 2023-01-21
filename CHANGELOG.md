@@ -7,6 +7,7 @@
 - Start and Stop menu items supporting accelerators (keyboard shortcuts)
 - Mute and Unmute menu items supporting accelerators (keyboard shortcuts)
 - Beat Count -> Increment/Decrement menu items supporting accelerators (keyboard shortcuts)
+- Tempo -> Increment/Decrement/Increment-by-10/Decrement-by-10 menu items supporting accelerators (keyboard shortcuts)
 
 ## 1.1.3
 

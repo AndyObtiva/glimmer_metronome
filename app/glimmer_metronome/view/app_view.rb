@@ -76,8 +76,8 @@ class GlimmerMetronome
           }
           
           spinner {
-            minimum 1
-            maximum 64
+            minimum Model::Rhythm::BEAT_COUNT_MINIMUM
+            maximum Model::Rhythm::BEAT_COUNT_MAXIMUM
             selection <=> [@metronome.rhythm, :beat_count]
             font height: 30
           }
@@ -89,8 +89,8 @@ class GlimmerMetronome
           }
           
           spinner {
-            minimum 30
-            maximum 1000
+            minimum Model::Rhythm::TEMPO_MINIMUM
+            maximum Model::Rhythm::TEMPO_MAXIMUM
             selection <=> [@metronome.rhythm, :tempo]
             font height: 30
           }

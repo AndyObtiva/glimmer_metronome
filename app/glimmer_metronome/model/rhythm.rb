@@ -27,7 +27,11 @@ class GlimmerMetronome
   module Model
     class Rhythm
       BEAT_COUNT_DEFAULT = 4
+      BEAT_COUNT_MINIMUM = 1
+      BEAT_COUNT_MAXIMUM = 64
       TEMPO_DEFAULT = 120
+      TEMPO_MINIMUM = 30
+      TEMPO_MAXIMUM = 1000
       
       attr_reader :beat_count
       attr_accessor :beats, :tempo
