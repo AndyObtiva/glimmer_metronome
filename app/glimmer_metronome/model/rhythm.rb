@@ -26,12 +26,15 @@ require_relative 'beat'
 class GlimmerMetronome
   module Model
     class Rhythm
+      BEAT_COUNT_DEFAULT = 4
+      TEMPO_DEFAULT = 120
+      
       attr_reader :beat_count
       attr_accessor :beats, :tempo
       
-      def initialize(beat_count)
+      def initialize(beat_count: BEAT_COUNT_DEFAULT, tempo: TEMPO_DEFAULT)
         self.beat_count = beat_count
-        @tempo = 120
+        @tempo = tempo
       end
       
       def beat_count=(value)
