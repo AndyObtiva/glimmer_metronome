@@ -23,6 +23,7 @@ require_relative '../model/metronome'
 
 require_relative 'metronome_menu_bar'
 require_relative 'metronome_tool_bar'
+require_relative 'metronome_about_dialog'
 
 class GlimmerMetronome
   module View
@@ -37,11 +38,11 @@ class GlimmerMetronome
         
         display {
           on_about do
-            display_about_dialog
+            metronome_about_dialog(owner: body_root).open
           end
           
           on_preferences do
-            display_about_dialog
+            metronome_about_dialog(owner: body_root).open
           end
           
           on_swt_keydown do |event|
@@ -168,30 +169,6 @@ class GlimmerMetronome
         body_root.layout(true, true)
         body_root.pack(true)
         body_root.center_within_display
-      end
-      
-      def display_about_dialog
-        dialog(body_root) {
-          grid_layout(2, false) {
-            margin_width 15
-            margin_height 15
-          }
-          
-          background :white
-          image ICON
-          text 'About'
-          
-          label {
-            layout_data :center, :center, false, false
-            background :white
-            image ICON, height: 260
-          }
-          label {
-            layout_data :fill, :fill, true, true
-            background :white
-            text "Glimmer Metronome #{VERSION}\n\n#{LICENSE}\n\nGlimmer Metronome icon made by Freepik from www.flaticon.com"
-          }
-        }.open
       end
     end
   end

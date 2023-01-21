@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.1.4
+
+- Implement menu actions for play/stop/mute/unmute
+- Upgrade to glimmer-dsl-swt 4.26.0.1
+- Start and Stop menu items supporting accelerators (keyboard shortcuts)
+- Mute and Unmute menu items supporting accelerators (keyboard shortcuts)
+
 ## 1.1.3
 
 - Fix issue with changing the beat count while the metronome is stopped resulting in starting the metronome while the play button status is stuck as if it is stopped

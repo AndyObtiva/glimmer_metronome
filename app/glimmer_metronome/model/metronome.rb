@@ -40,12 +40,17 @@ class GlimmerMetronome
         @stopped = false
       end
       
-      def started
+      def stopped=(value)
+        @stopped = value
+        notify_observers(:playing)
+      end
+      
+      def playing
         !stopped
       end
-      alias started? started
+      alias playing? playing
       
-      def started=(value)
+      def playing=(value)
         self.stopped = !value
       end
       
@@ -64,7 +69,6 @@ class GlimmerMetronome
           }
         end
       end
-      alias start! play!
       
       def stop!
         self.stopped = true
@@ -79,6 +83,14 @@ class GlimmerMetronome
         else
           stop!
         end
+      end
+      
+      def mute!
+        self.muted = true
+      end
+      
+      def unmute!
+        self.muted = false
       end
       
       def toggle_mute!

@@ -1,5 +1,3 @@
-#!/usr/bin/env jruby
-
 # Copyright (c) 2022-2023 Andy Maleh
 #
 # Permission is hereby granted, free of charge, to any person obtaining
@@ -21,14 +19,36 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-runner = File.expand_path('../../app/glimmer_metronome/launch.rb', __FILE__)
-
-# Detect if inside a JAR file or not
-if runner.include?('uri:classloader')
-  require runner
-else
-  require 'glimmer/launcher'
+class GlimmerMetronome
+  module View
+    class MetronomeAboutDialog
+      include Glimmer::UI::CustomShell
+      
+      option :owner
   
-  launcher = Glimmer::Launcher.new([runner] + ARGV)
-  launcher.launch
+      body {
+        dialog(owner) {
+          grid_layout(2, false) {
+            margin_width 15
+            margin_height 15
+          }
+          
+          background :white
+          image ICON
+          text 'About'
+          
+          label {
+            layout_data :center, :center, false, false
+            background :white
+            image ICON, height: 260
+          }
+          label {
+            layout_data :fill, :fill, true, true
+            background :white
+            text "Glimmer Metronome #{VERSION}\n\n#{LICENSE}\n\nGlimmer Metronome icon made by Freepik from www.flaticon.com"
+          }
+        }
+      }
+    end
+  end
 end
