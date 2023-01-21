@@ -105,7 +105,7 @@ class GlimmerMetronome
           }
           
           on_widget_disposed {
-            @metronome.stop_metronome!
+            @metronome.stop!
           }
         }
       }
@@ -139,7 +139,7 @@ class GlimmerMetronome
       
       def build_beats
         initially_stopped = @metronome.stopped
-        @metronome.stop_metronome! unless initially_stopped
+        @metronome.stop! unless initially_stopped
         beat_container_layout_change = @metronome.rhythm.beat_count != @beats.count && (@metronome.rhythm.beat_count < 9 || @beats.count < 9)
         if @metronome.rhythm.beat_count > @beats.count
           index_start = @beats.count
@@ -154,7 +154,7 @@ class GlimmerMetronome
           @beats = @beats[0...first_index_to_dispose]
         end
         update_beat_container_layout if beat_container_layout_change
-        @metronome.start_metronome! unless initially_stopped
+        @metronome.play! unless initially_stopped
       end
       
       def update_beat_container_layout

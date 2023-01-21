@@ -14,7 +14,7 @@ class GlimmerMetronome
               text '&Play'
               
               on_widget_selected do
-                start_metronome!
+                metronome.play!
               end
             }
             
@@ -22,7 +22,7 @@ class GlimmerMetronome
               text '&Stop'
               
               on_widget_selected do
-                stop_metronome!
+                metronome.stop!
               end
             }
             
@@ -30,7 +30,7 @@ class GlimmerMetronome
               text '&Mute'
               
               on_widget_selected do
-                metronome.muted = !metronome.muted # TODO consider adding a method to do this
+                metronome.toggle_mute!
                 mi.text = metronome.muted ? '&Unmute' : '&Mute'
               end
             }

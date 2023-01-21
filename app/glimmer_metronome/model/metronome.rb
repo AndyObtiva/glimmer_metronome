@@ -30,7 +30,7 @@ class GlimmerMetronome
       FILE_SOUND_METRONOME_DOWN = File.join(APP_ROOT, 'sounds', 'metronome-down.wav')
       
       attr_reader :rhythm
-      attr_accessor :muted, :stopped # TODO add a started method for convenience
+      attr_accessor :muted, :stopped
       alias muted? muted
       alias stopped? stopped
       
@@ -40,8 +40,16 @@ class GlimmerMetronome
         @stopped = false
       end
       
-      # TODO rename to remove the word metronome!
-      def start_metronome!
+      def started
+        !stopped
+      end
+      alias started? started
+      
+      def started=(value)
+        self.stopped = !value
+      end
+      
+      def play!
         self.stopped = false
         @thread ||= Thread.new do
           @rhythm.beat_count.times.cycle { |n|
@@ -56,22 +64,25 @@ class GlimmerMetronome
           }
         end
       end
+      alias start! play!
       
-      # TODO rename to remove the word metronome!
-      def stop_metronome!
+      def stop!
         self.stopped = true
         @thread&.kill # not dangerous in this case and is useful to stop sleep
         @thread = nil
         @rhythm.off!
       end
       
-      # TODO rename to remove the word metronome
-      def toggle_metronome!
+      def toggle_playback!
         if stopped?
-          start_metronome!
+          play!
         else
-          stop_metronome!
+          stop!
         end
+      end
+      
+      def toggle_mute!
+        self.muted = !self.muted
       end
       
       # Play sound with the Java Sound library
