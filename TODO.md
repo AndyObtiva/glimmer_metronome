@@ -20,3 +20,4 @@
 - Clicktracks: Support the concept of bars/measures and enable building different metronome rhtyhms/tempos in different bars to build clicktracks for songs.
 - Set lists: multiple click tracks in a set list
 - Backup to/Restore from files
+- Fix issue with a metronome running more than 1 hour experiencing visual slowdown glitches while audio is perfectly on time

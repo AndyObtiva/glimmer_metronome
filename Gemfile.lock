@@ -154,6 +154,7 @@ GEM
 
 PLATFORMS
   universal-java-17
+  universal-java-19
 
 DEPENDENCIES
   glimmer-dsl-swt (~> 4.26.0.1)

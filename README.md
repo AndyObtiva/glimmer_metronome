@@ -4,7 +4,7 @@
 
 <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.3 DMG for Mac (ARM64 Ventura and Older)](https://www.dropbox.com/s/pwwpdj3sjggqokz/Glimmer%20Metronome-1.1.3-arm64.dmg?dl=1)
 
-<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.1 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/ecwe0ukjldag6hu/Glimmer%20Metronome-1.1.1.dmg?dl=1)
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.4 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/rnlh0nv9gj9ntuh/Glimmer%20Metronome-1.1.4.dmg?dl=1)
 
 ![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)
 
@@ -36,7 +36,7 @@ You may download a pre-packaged version:
 
 <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.3 DMG for Mac (ARM64 Ventura and Older)](https://www.dropbox.com/s/pwwpdj3sjggqokz/Glimmer%20Metronome-1.1.3-arm64.dmg?dl=1)
 
-<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.1 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/ecwe0ukjldag6hu/Glimmer%20Metronome-1.1.1.dmg?dl=1)
+<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.4 DMG for Mac (x64 Catalina and Older)](https://www.dropbox.com/s/rnlh0nv9gj9ntuh/Glimmer%20Metronome-1.1.4.dmg?dl=1)
 
 Alternatively, if you are a software engineer and would like to install this application as a [Ruby gem](https://guides.rubygems.org/what-is-a-gem/), you may follow these instructions:
 
@@ -53,6 +53,43 @@ Lastly, you can package a native executable for your specific system (e.g. produ
 - Package native executable with `glimmer "package[dmg]"` to produce DMG file on Mac
 - Package native executable with `glimmer "package[msi]"` to produce MSI installer on Windows (assuming you installed the [WiX Toolset](https://wixtoolset.org/) as per the instructions at [Glimmer DSL for SWT Packaging & Distribution](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md))
 - You can also directly run the project from the cloned repo directory with `glimmer run`
+
+## Menus
+
+### Action Menu
+
+![metronome](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-menu-action.png)
+
+- Stop (CMD+S on Mac / CTRL+S on Linux/Windows)
+- Play (CMD+P on Mac / CTRL+P on Linux/Windows)
+- Mute (CMD+M on Mac / CTRL+M on Linux/Windows)
+- Unmute (CMD+U on Mac / CTRL+U on Linux/Windows)
+- [Beat Count submenu (see below)](#action-menu---beat-count)
+- [Tempo submenu (see below)](#action-menu---tempo)
+- Exit (ALT+F4)
+
+### Action Menu - Beat Count
+
+![metronome](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-menu-action-beat-count.png)
+
+- Increment (CMD+= / CTRL+= on Linux/Windows)
+- Decrement (CMD+- on Mac / CTRL+- on Linux/Windows)
+
+### Action Menu - Tempo
+
+![metronome](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-menu-action-tempo.png)
+
+- Increment (CMD+ArrowUp / CTRL+ArrowUp on Linux/Windows)
+- Decrement (CMD+ArrowDown on Mac / CTRL+ArrowDown on Linux/Windows)
+- Increment by 10 (CMD+SHIFT+ArrowUp / CTRL+SHIFT+ArrowUp on Linux/Windows)
+- Decrement by 10 (CMD+SHIFT+ArrowDown on Mac / CTRL+SHIFT+ArrowDown on Linux/Windows)
+
+### Help Menu
+
+![metronome](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-menu-help.png)
+
+- Tips (CMD+T / CTRL+T on Linux/Windows)
+- About (CMD+A / CTRL+A on Linux/Windows)
 
 ## Contributing
 
