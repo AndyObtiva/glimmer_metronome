@@ -2,9 +2,9 @@
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
-The Glimmer Metronome supports different beat counts, tempos, up/down clicks, tap-based tempo calculation, mute, and stop/play.
+Glimmer Metronome supports different beat counts, click sounds, and tempos, including tap-based tempo calculation [(click to see a video demo)](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4).
 
-![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)
+[![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4)
 
 <img src="https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/icons/linux/Glimmer%20Metronome.png" height=40 /> [Download Glimmer Metronome 1.1.3 DMG for Mac (ARM64 Ventura and Older)](https://www.dropbox.com/s/pwwpdj3sjggqokz/Glimmer%20Metronome-1.1.3-arm64.dmg?dl=1)
 
@@ -22,9 +22,9 @@ Tempo Change (hit ENTER repeatedly to auto-calculate tempo)
 
 ![metronome tempo changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-tempo-changed.png)
 
-Up Beat Change (via mouse-click on beats to toggle up [yellow] or down [white])
+Click Sound Change (via mouse-click on beats to toggle [yellow] or [white])
 
-![metronome up beats changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
+![metronome click sound changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
 
 ### Menus
 
@@ -91,10 +91,6 @@ Lastly, you can package a native executable for your specific system (e.g. produ
 - Package native executable with `glimmer "package[dmg]"` to produce DMG file on Mac
 - Package native executable with `glimmer "package[msi]"` to produce MSI installer on Windows (assuming you installed the [WiX Toolset](https://wixtoolset.org/) as per the instructions at [Glimmer DSL for SWT Packaging & Distribution](https://github.com/AndyObtiva/glimmer-dsl-swt/blob/master/docs/reference/GLIMMER_PACKAGING_AND_DISTRIBUTION.md))
 - You can also directly run the project from the cloned repo directory with `glimmer run`
-
-## Pedantics' Note
-
-For hardcore music buffs out there who are shocked at my reversal or wrong usage of Up beat and Down beat, here are few explanations to keep in mind. First of all, I am a drumkit (Rock) drummer, not a melodic musician. As such, drumkit drummers call every beat on the rhythm count a DOWNBEAT (i.e. 1, 2, 3, 4). Next, I am a Punk Rocker and I've been known to do some Punk drumming. What do I mean by that!? Punk drummers have a complete lack of respect for music rules. In fact, they write their own rules every day, and OFTEN IN TOTAL OPPOSITION TO MUSIC RULES. So, I just came up with the idea of calling the first beat the UPBEAT because the Metronome makes this HIGHER note shrill sound when it clicks on the first beat. Thank you for your understanding and have an awesome Punk Rocking day while at it!
 
 ## Contributing
 
