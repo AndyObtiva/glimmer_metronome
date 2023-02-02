@@ -63,11 +63,6 @@ Click Sound Change (via mouse-click on beats to toggle yellow or white)
 - Tips (CMD+T / CTRL+T on Linux/Windows)
 - About (CMD+A / CTRL+A on Linux/Windows)
 
-
-## Demo
-
-[Video/Audio Demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4)
-
 ## Software Setup Instructions
 
 You may download a pre-packaged version:
