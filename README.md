@@ -2,7 +2,9 @@
 ## [<img src="https://raw.githubusercontent.com/AndyObtiva/glimmer/master/images/glimmer-logo-hi-res.png" height=40 /> Glimmer Application](https://github.com/AndyObtiva/glimmer-dsl-swt)
 [![Gem Version](https://badge.fury.io/rb/glimmer_metronome.svg)](http://badge.fury.io/rb/glimmer_metronome)
 
-Glimmer Metronome supports different beat counts, click sounds, and tempos, including tap-based tempo calculation [(click to see a video demo)](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4).
+Glimmer Metronome supports different beat counts, click sounds, and tempos, including tap-based tempo calculation [(click to see a video demo drum solo)](https://youtube.com/shorts/F4xu13y0wTM).
+
+[![metronome demo drum solo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-demo-drum-solo.png)](https://youtube.com/shorts/F4xu13y0wTM)
 
 [![metronome demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.gif)](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4)
 
