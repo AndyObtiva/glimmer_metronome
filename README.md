@@ -22,7 +22,7 @@ Tempo Change (hit ENTER repeatedly to auto-calculate tempo)
 
 ![metronome tempo changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-tempo-changed.png)
 
-Click Sound Change (via mouse-click on beats to toggle [yellow] or [white])
+Click Sound Change (via mouse-click on beats to toggle yellow or white)
 
 ![metronome click sound changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
 
