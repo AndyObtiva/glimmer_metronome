@@ -24,8 +24,6 @@ Up Beat Change (via mouse-click on beats to toggle up [yellow] or down [white])
 
 ![metronome up beats changed](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome-up-beats-changed.png)
 
-For hardcore music buffs out there who are shocked at my reversal or wrong usage of Up beat and Down beat, here are few explanations to keep in mind. First of all, I am a drumkit (Rock) drummer, not a melodic musician. As such, drumkit drummers call every beat on the rhythm count a DOWNBEAT (i.e. 1, 2, 3, 4). Next, I am a Punk Rocker and I've been known to do some Punk drumming. What do I mean by that!? Punk drummers have a complete lack of respect for music rules. In fact, they write their own rules every day, and OFTEN IN TOTAL OPPOSITION TO MUSIC RULES. So, I just came up with the idea of calling the first beat the UPBEAT because the Metronome makes this HIGHER note shrill sound when it clicks on the first beat. Thank you for your understanding and have an awesome Punk Rocking day while at it!
-
 ## Demo
 
 [Video/Audio Demo](https://raw.githubusercontent.com/AndyObtiva/glimmer_metronome/master/screenshots/glimmer-metronome.mp4)
@@ -90,6 +88,10 @@ Lastly, you can package a native executable for your specific system (e.g. produ
 
 - Tips (CMD+T / CTRL+T on Linux/Windows)
 - About (CMD+A / CTRL+A on Linux/Windows)
+
+## Pedantics' Note
+
+For hardcore music buffs out there who are shocked at my reversal or wrong usage of Up beat and Down beat, here are few explanations to keep in mind. First of all, I am a drumkit (Rock) drummer, not a melodic musician. As such, drumkit drummers call every beat on the rhythm count a DOWNBEAT (i.e. 1, 2, 3, 4). Next, I am a Punk Rocker and I've been known to do some Punk drumming. What do I mean by that!? Punk drummers have a complete lack of respect for music rules. In fact, they write their own rules every day, and OFTEN IN TOTAL OPPOSITION TO MUSIC RULES. So, I just came up with the idea of calling the first beat the UPBEAT because the Metronome makes this HIGHER note shrill sound when it clicks on the first beat. Thank you for your understanding and have an awesome Punk Rocking day while at it!
 
 ## Contributing
 
